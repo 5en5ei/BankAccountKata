@@ -12,20 +12,20 @@ public class Account {
         if(amount.isNegative()){
             throw new IllegalArgumentException("Amount should be 0 or positive");
         }
-        balance.setBalance(balance.getBalance()+amount.getAmount());
+        balance.addCurrency(amount);
     }
 
     public void withdraw(Amount amount) {
         if(amount.isNegative()){
             throw new IllegalArgumentException("Amount should be 0 or positive");
         }
-        if(amount.getAmount() > balance.getBalance()){
+        if(balance.NotEnoughMoney(amount)){
             throw new IllegalArgumentException("Not enough money on your account");
         }
-        balance.setBalance(balance.getBalance()-amount.getAmount());
+        balance.retrieveCurrency(amount);
     }
 
-    public int getBalance() {
+    public Amount getBalance() {
         return balance.getBalance();
     }
 }

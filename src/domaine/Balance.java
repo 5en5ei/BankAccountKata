@@ -1,17 +1,29 @@
 package domaine;
 
-public class Balance {
+class Balance {
     private Amount amount;
 
-    public Balance(Amount amount) {
+    Balance(Amount amount) {
         this.amount = amount;
     }
 
-    int getBalance() {
-        return amount.getAmount();
+    Amount getBalance() {
+        return amount;
     }
 
-    void setBalance(int newAmount) {
-        amount = new Amount(newAmount);
+    void setBalance(Amount newAmount) {
+        amount = new Amount(newAmount.getAmount());
+    }
+
+    void addCurrency(Amount amountAdded){
+        amount = new Amount(amount.getAmount() + amountAdded.getAmount());
+    }
+
+    void retrieveCurrency(Amount amountAdded){
+        amount = new Amount(amount.getAmount() - amountAdded.getAmount());
+    }
+
+    boolean NotEnoughMoney(Amount amountRetrieved) {
+        return amount.getAmount() < amountRetrieved.getAmount();
     }
 }

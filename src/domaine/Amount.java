@@ -7,7 +7,7 @@ public class Amount {
         this.amount = amount;
     }
 
-    int getAmount(){
+    public int getAmount(){
         return amount;
     }
 
