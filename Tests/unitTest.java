@@ -28,9 +28,9 @@ public class unitTest {
 
     @Test
     void addAmountToAnAccount(){
-        Account account = new Account(0);
+        Account account = new Account(10);
         account.deposite(10);
-        assertEquals(account.getBalance(), 10);
+        assertEquals(account.getBalance(), 20);
     }
 
 }
