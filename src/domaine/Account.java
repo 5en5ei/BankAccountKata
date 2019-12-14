@@ -4,25 +4,25 @@ public class Account {
 
     private Balance balance;
 
-    public Account(int amount) {
-        balance = new Balance(new Amount(amount));
+    public Account(Amount amount) {
+        balance = new Balance(amount);
     }
 
-    public void deposit(int amount) {
-        if(amount < 0){
+    public void deposit(Amount amount) {
+        if(amount.isNegative()){
             throw new IllegalArgumentException("Amount should be 0 or positive");
         }
-        balance.setBalance(balance.getBalance()+amount);
+        balance.setBalance(balance.getBalance()+amount.getAmount());
     }
 
-    public void withdraw(int amount) {
-        if(amount < 0){
+    public void withdraw(Amount amount) {
+        if(amount.isNegative()){
             throw new IllegalArgumentException("Amount should be 0 or positive");
         }
-        if(amount > balance.getBalance()){
+        if(amount.getAmount() > balance.getBalance()){
             throw new IllegalArgumentException("Not enough money on your account");
         }
-        balance.setBalance(balance.getBalance()-amount);
+        balance.setBalance(balance.getBalance()-amount.getAmount());
     }
 
     public int getBalance() {

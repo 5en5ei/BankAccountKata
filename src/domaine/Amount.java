@@ -1,13 +1,17 @@
 package domaine;
 
-class Amount {
+public class Amount {
     private final int amount;
 
-    Amount(int amount) {
+    public Amount(int amount) {
         this.amount = amount;
     }
 
     int getAmount(){
         return amount;
+    }
+
+    boolean isNegative() {
+        return amount < 0;
     }
 }

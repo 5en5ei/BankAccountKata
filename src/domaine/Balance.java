@@ -3,7 +3,7 @@ package domaine;
 public class Balance {
     private Amount amount;
 
-    Balance(Amount amount) {
+    public Balance(Amount amount) {
         this.amount = amount;
     }
 
