@@ -25,7 +25,7 @@ public class Account {
         balance.setBalance(balance.getBalance()-amount);
     }
 
-    public Balance getBalance() {
-        return balance;
+    public int getBalance() {
+        return balance.getBalance();
     }
 }

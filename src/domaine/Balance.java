@@ -7,7 +7,7 @@ public class Balance {
         this.amount = amount;
     }
 
-    public int getBalance() {
+    int getBalance() {
         return amount.getAmount();
     }
 
