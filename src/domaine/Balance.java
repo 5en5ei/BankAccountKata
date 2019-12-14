@@ -1,16 +1,17 @@
 package domaine;
 
 public class Balance {
-    private int balance;
+    private Amount amount;
 
-    public Balance() {
+    Balance(Amount amount) {
+        this.amount = amount;
     }
 
     public int getBalance() {
-        return balance;
+        return amount.getAmount();
     }
 
-    public void setBalance(int amount) {
-        balance+=amount;
+    void setBalance(int newAmount) {
+        amount = new Amount(newAmount);
     }
 }

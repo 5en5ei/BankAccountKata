@@ -2,17 +2,17 @@ package domaine;
 
 public class Account {
 
-    private final Balance balance = new Balance();
+    private Balance balance;
 
     public Account(int amount) {
-        this.balance.setBalance(amount);
+        balance = new Balance(new Amount(amount));
     }
 
     public void deposit(int amount) {
         if(amount < 0){
             throw new IllegalArgumentException("Amount should be 0 or positive");
         }
-        balance.setBalance(+amount);
+        balance.setBalance(balance.getBalance()+amount);
     }
 
     public void withdraw(int amount) {
@@ -22,7 +22,7 @@ public class Account {
         if(amount > balance.getBalance()){
             throw new IllegalArgumentException("Not enough money on your account");
         }
-        balance.setBalance(-amount);
+        balance.setBalance(balance.getBalance()-amount);
     }
 
     public Balance getBalance() {
