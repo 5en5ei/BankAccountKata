@@ -57,7 +57,6 @@ class unitTest {
     @Test
     void withdrawANegativeAmount(){
         Account account = new Account(10);
-        account.withdraw(-10);
         assertThrows(IllegalArgumentException.class, () -> account.withdraw(-10));
     }
 }
