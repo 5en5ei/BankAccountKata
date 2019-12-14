@@ -3,8 +3,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class unitTest {
-    @Test
-    void addAmount() {
 
+    public static final int EMPTY_ACCOUNT = 0;
+
+    @Test
+    void createANewAccount() {
+        Account account = new Account(0);
+
+        assertEquals(account.balance, EMPTY_ACCOUNT);
     }
 }
