@@ -14,6 +14,9 @@ public class Account {
     }
 
     public void deposite(int amount) {
+        if(amount < 0){
+            throw new IllegalArgumentException("Amount should be 0 or positive");
+        }
         balance+= amount;
     }
 }
