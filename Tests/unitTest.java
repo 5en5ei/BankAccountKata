@@ -19,4 +19,11 @@ public class unitTest {
         assertEquals(account.getBalance(), 10);
     }
 
+    @Test
+    void addAmountToAnEmptyAccount(){
+        Account account = new Account(0);
+        account.deposite(10);
+        assertEquals(account.getBalance(), 10);
+    }
+
 }
