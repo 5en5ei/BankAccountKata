@@ -24,6 +24,9 @@ public class Account {
         if(amount < 0){
             throw new IllegalArgumentException("Amount should be 0 or positive");
         }
+        if(amount > balance){
+
+        }
         balance-=amount;
     }
 }
