@@ -27,7 +27,7 @@ public class Account {
         balance = balance.retrieveAmount(Objects.requireNonNull(amount));
     }
 
-    public Amount getBalance() {
-        return balance.getBalance();
+    public Balance getBalance() {
+        return balance;
     }
 }

@@ -1,9 +1,11 @@
 package domaine;
 
-class Balance {
+import java.util.Objects;
+
+public class Balance {
     private Amount amount;
 
-    Balance(Amount amount) {
+    public Balance(Amount amount) {
         this.amount = amount;
     }
 
@@ -21,5 +23,18 @@ class Balance {
 
     boolean NotEnoughMoney(Amount amountRetrieved) {
         return amount.getAmount() < amountRetrieved.getAmount();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Balance)) return false;
+        Balance balance = (Balance) o;
+        return amount.equals(balance.amount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(amount);
     }
 }
