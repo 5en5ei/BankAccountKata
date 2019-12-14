@@ -16,6 +16,11 @@ class unitTest {
     }
 
     @Test
+    void createANullAccount() {
+        assertThrows(NullPointerException.class, () -> new Account(null));
+    }
+
+    @Test
     void createANewAccountWithCashInIt() {
         Account account = new Account(new Amount(10));
         assertEquals(account.getBalance().getAmount(), 10);

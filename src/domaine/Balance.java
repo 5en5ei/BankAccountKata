@@ -11,16 +11,12 @@ class Balance {
         return amount;
     }
 
-    void setBalance(Amount newAmount) {
-        amount = new Amount(newAmount.getAmount());
+    Balance addAmount(Amount amountAdded){
+       return new Balance(amount.addMoney(amountAdded));
     }
 
-    void addCurrency(Amount amountAdded){
-        amount = new Amount(amount.getAmount() + amountAdded.getAmount());
-    }
-
-    void retrieveCurrency(Amount amountAdded){
-        amount = new Amount(amount.getAmount() - amountAdded.getAmount());
+    Balance retrieveAmount(Amount amountAdded){
+       return new Balance(amount.retrieveMoney(amountAdded));
     }
 
     boolean NotEnoughMoney(Amount amountRetrieved) {

@@ -14,7 +14,7 @@ public class Account {
         if(amount.isNegative()){
             throw new IllegalArgumentException("Amount should be 0 or positive");
         }
-        balance.addCurrency(Objects.requireNonNull((amount)));
+        balance = balance.addAmount(Objects.requireNonNull((amount)));
     }
 
     public void withdraw(Amount amount) {
@@ -24,7 +24,7 @@ public class Account {
         if(balance.NotEnoughMoney(amount)){
             throw new IllegalArgumentException("Not enough money on your account");
         }
-        balance.retrieveCurrency(Objects.requireNonNull(amount));
+        balance = balance.retrieveAmount(Objects.requireNonNull(amount));
     }
 
     public Amount getBalance() {

@@ -14,4 +14,12 @@ public class Amount {
     boolean isNegative() {
         return amount < 0;
     }
+
+    Amount addMoney(Amount amountAdded){
+        return new Amount(amount + amountAdded.getAmount());
+    }
+
+    Amount  retrieveMoney(Amount amountAdded){
+        return new Amount(amount - amountAdded.getAmount());
+    }
 }
