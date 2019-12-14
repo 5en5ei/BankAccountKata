@@ -1,3 +1,4 @@
+import domaine.Account;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,6 +11,6 @@ public class unitTest {
     void createANewAccount() {
         Account account = new Account(0);
 
-        assertEquals(account.balance, EMPTY_ACCOUNT);
+        assertEquals(account.getBalance(), EMPTY_ACCOUNT);
     }
 }
