@@ -46,4 +46,11 @@ class unitTest {
         account.withdraw(10);
         assertEquals(account.getBalance(), 0);
     }
+
+    @Test
+    void withdrawAPartOfTheSavings(){
+        Account account = new Account(10);
+        account.withdraw(5);
+        assertEquals(account.getBalance(), 5);
+    }
 }
