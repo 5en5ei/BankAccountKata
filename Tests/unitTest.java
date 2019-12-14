@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class unitTest {
+class unitTest {
 
-    public static final int EMPTY_ACCOUNT = 0;
+    private static final int EMPTY_ACCOUNT = 0;
 
     @Test
     void createANewAccount() {
