@@ -39,4 +39,11 @@ class unitTest {
         Account account = new Account(0);
         assertThrows(IllegalArgumentException.class, () -> account.deposite(-10));
     }
+
+    @Test
+    void withdrawAllTheSavings(){
+        Account account = new Account(10);
+        account.withdraw(10);
+        assertEquals(account.getBalance(), 0);
+    }
 }
