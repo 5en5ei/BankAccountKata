@@ -23,21 +23,21 @@ class unitTest {
     @Test
     void addAmountToAnEmptyAccount(){
         Account account = new Account(0);
-        account.deposite(10);
+        account.deposit(10);
         assertEquals(account.getBalance(), 10);
     }
 
     @Test
     void addAmountToAnAccount(){
         Account account = new Account(10);
-        account.deposite(10);
+        account.deposit(10);
         assertEquals(account.getBalance(), 20);
     }
 
     @Test
     void addANegativeAmountToAnAccount(){
         Account account = new Account(0);
-        assertThrows(IllegalArgumentException.class, () -> account.deposite(-10));
+        assertThrows(IllegalArgumentException.class, () -> account.deposit(-10));
     }
 
     @Test
