@@ -12,4 +12,8 @@ public class Account {
     public int getBalance() {
         return balance;
     }
+
+    public void deposite(int amount) {
+        balance+= amount;
+    }
 }
