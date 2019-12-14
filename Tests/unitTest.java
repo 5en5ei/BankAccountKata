@@ -2,6 +2,7 @@ import domaine.Account;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class unitTest {
 
@@ -33,4 +34,9 @@ public class unitTest {
         assertEquals(account.getBalance(), 20);
     }
 
+    @Test
+    void addANegativeAmountToAnAccount(){
+        Account account = new Account(0);
+        assertThrows(IllegalArgumentException.class, () -> account.deposite(-10));
+    }
 }
