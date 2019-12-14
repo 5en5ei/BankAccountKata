@@ -25,7 +25,7 @@ public class Account {
             throw new IllegalArgumentException("Amount should be 0 or positive");
         }
         if(amount > balance){
-
+            throw new IllegalArgumentException("Not enough money on your account");
         }
         balance-=amount;
     }
