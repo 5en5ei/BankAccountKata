@@ -13,6 +13,8 @@ public class Balance {
         return amount;
     }
 
+    int showAmount() { return amount.getAmount();}
+
     Balance addAmount(Amount amountAdded){
        return new Balance(amount.addMoney(amountAdded));
     }

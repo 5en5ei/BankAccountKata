@@ -69,6 +69,14 @@ class unitTest {
     @Test
     void withdrawMoreThanTereIsOnTheAccount(){
         Account account = new Account(new Amount(10));
-        assertThrows(IllegalArgumentException.class, () -> account.withdraw(new Amount(-100)));
+        assertThrows(IllegalStateException.class, () -> account.withdraw(new Amount(100)));
+    }
+
+    @Test
+    void printTest(){
+        Account account = new Account(new Amount(10));
+        account.withdraw(new Amount(5));
+        account.deposit(new Amount(15));
+        account.printOperations();
     }
 }
