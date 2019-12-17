@@ -19,9 +19,9 @@ class PrintTest {
         account.withdraw(new Amount(5));
         account.deposit(new Amount(15));
         assertEquals(account.printOperations(),
-                "Date: "+ simpleDateFormat.format(date) +" Transaction: 100 Total in this account: 100\n" +
-                "Date: "+ simpleDateFormat.format(date) +" Transaction: 5 Total in this account: 95\n" +
-                "Date: "+ simpleDateFormat.format(date) +" Transaction: 15 Total in this account: 110");
+                "Date: "+ simpleDateFormat.format(date) +" New account"+" Transaction: 100 Total in this account: 100\n" +
+                "Date: "+ simpleDateFormat.format(date) +" Withdraw"+" Transaction: 5 Total in this account: 95\n" +
+                "Date: "+ simpleDateFormat.format(date) +" Deposit"+" Transaction: 15 Total in this account: 110");
         System.out.println(account.printOperations());
     }
 }
