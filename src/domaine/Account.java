@@ -1,6 +1,5 @@
 package domaine;
 
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.Objects;
 
@@ -12,7 +11,7 @@ public class Account {
 
     public Account(Amount amount) {
         balance = new Balance(Objects.requireNonNull(amount));
-        operations.add(new Operation(new Date(), amount, balance.getBalance()));
+        operations.add(new Operation(amount, balance.getBalance(), OperationsEnum.NEW_ACCOUNT));
     }
 
     public void deposit(Amount amount) {
@@ -20,7 +19,7 @@ public class Account {
             throw new IllegalArgumentException("Amount should be 0 or positive");
         }
         balance = balance.addAmount(Objects.requireNonNull((amount)));
-        operations.add(new Operation(new Date(), amount, balance.getBalance()));
+        operations.add(new Operation(amount, balance.getBalance(),OperationsEnum.DEPOSIT));
     }
 
     public void withdraw(Amount amount) {
@@ -31,7 +30,7 @@ public class Account {
             throw new IllegalStateException("Not enough money on your account");
         }
         balance = balance.retrieveAmount(Objects.requireNonNull(amount));
-        operations.add(new Operation(new Date(), amount, balance.getBalance()));
+        operations.add(new Operation(amount, balance.getBalance(),OperationsEnum.WITHDRAW));
     }
 
     public Balance getBalance() {

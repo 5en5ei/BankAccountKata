@@ -6,36 +6,39 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Operation {
-    private final Date date;
+    private final Date date = new Date();
     private final Amount amountOperation;
     private final Amount balanceAmount;
-    private final DateFormat simpleDateFormat;
+    private final DateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
+    private final OperationsEnum operation;
 
-    public Operation(Date date, Amount amountOperation, Amount balanceAmount) {
-        this.date = Objects.requireNonNull(date);
+    public Operation(Amount amountOperation, Amount balanceAmount, OperationsEnum operation) {
         this.amountOperation = Objects.requireNonNull(amountOperation);
         this.balanceAmount = Objects.requireNonNull(balanceAmount);
-        this. simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
+        this.operation = operation;
     }
+
+
 
     @Override
     public String toString() {
-        return "Date: "+simpleDateFormat.format(date) + " " + "Transaction: "+amountOperation + " " + "Total in this account: " + balanceAmount;
+        return "Date: "+simpleDateFormat.format(date) + " " + operation + " " + "Transaction: "+ amountOperation + " " + "Total in this account: " + balanceAmount;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Operation)) return false;
-        Operation operation = (Operation) o;
-        return date.equals(operation.date) &&
-                amountOperation.equals(operation.amountOperation) &&
-                balanceAmount.equals(operation.balanceAmount) &&
-                Objects.equals(simpleDateFormat, operation.simpleDateFormat);
+        Operation operation1 = (Operation) o;
+        return Objects.equals(date, operation1.date) &&
+                amountOperation.equals(operation1.amountOperation) &&
+                balanceAmount.equals(operation1.balanceAmount) &&
+                Objects.equals(simpleDateFormat, operation1.simpleDateFormat) &&
+                operation == operation1.operation;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(date, amountOperation, balanceAmount, simpleDateFormat);
+        return Objects.hash(date, amountOperation, balanceAmount, simpleDateFormat, operation);
     }
 }
