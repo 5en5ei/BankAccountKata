@@ -1,15 +1,8 @@
-import domaine.Account;
-import domaine.Amount;
-import domaine.Balance;
+package domaine;
+
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 class unitTest {
-
-
-
 
     @Test
     void printTest(){
