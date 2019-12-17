@@ -1,6 +1,7 @@
 package domaine;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -8,20 +9,18 @@ public class Operation {
     private final Date date;
     private final Amount amountOperation;
     private final Amount balanceAmount;
-
-    private final DateFormat mediumDateFormat = DateFormat.getDateTimeInstance(
-            DateFormat.MEDIUM,
-            DateFormat.MEDIUM);
+    private final DateFormat simpleDateFormat;
 
     public Operation(Date date, Amount amountOperation, Amount balanceAmount) {
         this.date = Objects.requireNonNull(date);
         this.amountOperation = Objects.requireNonNull(amountOperation);
         this.balanceAmount = Objects.requireNonNull(balanceAmount);
+        this. simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
     }
 
     @Override
     public String toString() {
-        return mediumDateFormat.format(date) + " " + amountOperation + " " + balanceAmount;
+        return "Date: "+simpleDateFormat.format(date) + " " + "Transaction: "+amountOperation + " " + "Total in this account: " + balanceAmount;
     }
 
     @Override
@@ -32,11 +31,11 @@ public class Operation {
         return date.equals(operation.date) &&
                 amountOperation.equals(operation.amountOperation) &&
                 balanceAmount.equals(operation.balanceAmount) &&
-                Objects.equals(mediumDateFormat, operation.mediumDateFormat);
+                Objects.equals(simpleDateFormat, operation.simpleDateFormat);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(date, amountOperation, balanceAmount, mediumDateFormat);
+        return Objects.hash(date, amountOperation, balanceAmount, simpleDateFormat);
     }
 }
