@@ -15,12 +15,12 @@ class AmountTest {
     @Test
     void addMoney() {
         Amount amount = new Amount(10);
-        assertEquals(amount.addMoney(new Amount(10)).getAmount(), 20);
+        assertEquals(amount.addMoney(new Amount(10)), new Amount(20));
     }
 
     @Test
     void retrieveMoney() {
         Amount amount = new Amount(10);
-        assertEquals(amount.retrieveMoney(new Amount(10)).getAmount(), 0);
+        assertEquals(amount.retrieveMoney(new Amount(10)), new Amount(0));
     }
 }

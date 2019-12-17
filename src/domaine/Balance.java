@@ -3,7 +3,7 @@ package domaine;
 import java.util.Objects;
 
 public class Balance {
-    private Amount amount;
+    private final Amount amount;
 
     Balance(Amount amount) {
         this.amount = amount;
@@ -22,7 +22,7 @@ public class Balance {
     }
 
     boolean NotEnoughMoney(Amount amountRetrieved) {
-        return amount.getAmount() < amountRetrieved.getAmount();
+        return amount.containsLessMoney(amountRetrieved);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class Balance {
         if (this == o) return true;
         if (!(o instanceof Balance)) return false;
         Balance balance = (Balance) o;
-        return amount.equals(balance.amount);
+        return Objects.equals(amount, balance.amount);
     }
 
     @Override

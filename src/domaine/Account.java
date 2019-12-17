@@ -38,7 +38,23 @@ public class Account {
         return balance;
     }
 
-    public void printOperations(){
-        operations.forEach(Operation::print);
+    public String printOperations(){
+        StringBuilder stringBuilder = new StringBuilder();
+        operations.forEach(op -> stringBuilder.append(op).append("\n"));
+        String opString = stringBuilder.toString();
+        return opString.substring(0, opString.length() -1);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Account)) return false;
+        Account account = (Account) o;
+        return getBalance().equals(account.getBalance());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBalance());
     }
 }

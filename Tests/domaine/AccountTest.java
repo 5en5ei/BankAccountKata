@@ -9,7 +9,7 @@ class AccountTest {
     @Test
     void createANewAccount() {
         Account account = new Account(new Amount(0));
-        assertEquals(account.getBalance(), new Balance(new Amount(0)));
+        assertEquals(account, new Account(new Amount(0)));
     }
 
     @Test
@@ -20,21 +20,21 @@ class AccountTest {
     @Test
     void createANewAccountWithCashInIt() {
         Account account = new Account(new Amount(10));
-        assertEquals(account.getBalance(), new Balance(new Amount(10)));
+        assertEquals(account, new Account(new Amount(10)));
     }
 
     @Test
     void addAmountToAnEmptyAccount(){
         Account account = new Account(new Amount(0));
         account.deposit(new Amount(10));
-        assertEquals(account.getBalance(), new Balance(new Amount(10)));
+        assertEquals(account, new Account(new Amount(10)));
     }
 
     @Test
     void addAmountToAnAccount(){
         Account account = new Account(new Amount(10));
         account.deposit(new Amount(10));
-        assertEquals(account.getBalance(), new Balance(new Amount(20)));
+        assertEquals(account, new Account(new Amount(20)));
     }
 
     @Test
@@ -47,14 +47,14 @@ class AccountTest {
     void withdrawAllTheSavings(){
         Account account = new Account(new Amount(10));
         account.withdraw(new Amount(10));
-        assertEquals(account.getBalance(), new Balance(new Amount(0)));
+        assertEquals(account, new Account(new Amount(0)));
     }
 
     @Test
     void withdrawAPartOfTheSavings(){
         Account account = new Account(new Amount(10));
         account.withdraw(new Amount(5));
-        assertEquals(account.getBalance(), new Balance(new Amount(5)));
+        assertEquals(account, new Account(new Amount(5)));
     }
 
     @Test
