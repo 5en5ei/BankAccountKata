@@ -5,15 +5,13 @@ import java.util.Objects;
 public class Balance {
     private Amount amount;
 
-    public Balance(Amount amount) {
+    Balance(Amount amount) {
         this.amount = amount;
     }
 
     Amount getBalance() {
         return amount;
     }
-
-    int showAmount() { return amount.getAmount();}
 
     Balance addAmount(Amount amountAdded){
        return new Balance(amount.addMoney(amountAdded));

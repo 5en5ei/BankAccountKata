@@ -9,13 +9,13 @@ class BalanceTest {
     @Test
     void addAmount() {
         Balance balance = new Balance(new Amount(50));
-        assertEquals(balance.addAmount(new Amount(10)).showAmount(), 60);
+        assertEquals(balance.addAmount(new Amount(10)).getBalance(), new Amount(60));
     }
 
     @Test
     void retrieveAmount() {
         Balance balance = new Balance(new Amount(50));
-        assertEquals(balance.retrieveAmount(new Amount(10)).showAmount(), 40);
+        assertEquals(balance.retrieveAmount(new Amount(10)).getBalance(), new Amount(40));
     }
 
     @Test
